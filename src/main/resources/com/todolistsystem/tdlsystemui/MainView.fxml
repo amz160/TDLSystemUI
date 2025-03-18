@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.todolistsystem.tdlsystemui.MainController"
+      spacing="15" alignment="CENTER" style="-fx-padding: 20px;">
+
+    <!-- Title -->
+    <Label text="To-Do List Manager" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    <Label fx:id="labelSelectedList" text="Tasks for: [Select a List]" style="-fx-font-size: 16px;"/>
+
+    <!-- Create new list button & dropdown list menu -->
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="Create New List" onAction="#showCreateListPopup"/>
+        <ComboBox fx:id="comboBoxToDoLists" promptText="Select a List" onAction="#handleListSelection"/>
+    </HBox>
+
+    <!-- Tasks table -->
+    <TableView fx:id="tableViewTasks" style="-fx-pref-width: 100%;" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn text="Description" fx:id="columnDescription" prefWidth="300"/>
+            <TableColumn text="Due Date" fx:id="columnDueDate" prefWidth="150"/>
+            <TableColumn text="Status" fx:id="columnCompleted" prefWidth="100"/>
+            <TableColumn text="Delete" fx:id="columnDelete" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <!-- Add, Edit, Delete Task buttons -->
+    <HBox spacing="20" alignment="CENTER">
+        <Button text="Add Task" onAction="#showAddTaskPopup"/>
+        <Button text="Edit Task" onAction="#showEditTaskPopup"/>
+        <Button text="Delete List" onAction="#showDeleteListConfirmation"/>
+    </HBox>
+
+</VBox>
