@@ -1,0 +1,89 @@
+/* Background */
+.root {
+    -fx-background-color: #f8f9fa;
+}
+
+/* Titles */
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+.popup-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 0 0 10 0;
+}
+.section-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #444;
+    -fx-font-weight: bold;
+}
+
+/* Buttons */
+.main-button,
+.table-delete-button,
+.confirm-yes-button,
+.confirm-no-button {
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+    -fx-padding: 6 14;
+}
+
+/* Specific Button Colors */
+.main-button {
+    -fx-background-color: #4285f4;
+}
+.main-button:hover {
+    -fx-background-color: #3367d6;
+}
+
+.table-delete-button {
+    -fx-background-color: #d9534f;
+}
+.table-delete-button:hover {
+    -fx-background-color: #c9302c;
+}
+
+.confirm-yes-button {
+    -fx-background-color: #4CAF50;
+}
+.confirm-yes-button:hover {
+    -fx-background-color: #45a049;
+}
+
+.confirm-no-button {
+    -fx-background-color: #d9534f;
+}
+.confirm-no-button:hover {
+    -fx-background-color: #c9302c;
+}
+
+/* ComboBox Styling */
+.combo-box {
+    -fx-background-radius: 6;
+    -fx-padding: 4;
+}
+
+/* Table Styling */
+.table-view {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+.table-view .column-header-background {
+    -fx-background-color: #e0e0e0;
+}
+.table-view .column-header, .table-view .filler {
+    -fx-border-color: #ccc;
+    -fx-font-weight: bold;
+}
+
+/* Pop-ups */
+.popup-box {
+    -fx-background-color: #fefefe;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.5, 0, 0);
+    -fx-background-radius: 8;
+}
