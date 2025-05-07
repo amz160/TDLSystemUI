@@ -18,13 +18,16 @@ private static final String PASSWORD = "PASSWORD";
 ```
 4. Unzip and open TDLSystemUI in your preferred IDE
 5. Compile the project and run Main.java
-6. Immediately begin creating to-do lists and tasks, or run TestDAO.java to see a demo.
+6. Immediately begin creating to-do lists and tasks, or run TestDAO.java, IntegrationTest.java, or DataCollection.java to see a demo.
 
 ## Project Structure
 * **TDLSystem.sql**: creates the system database.
 * **DatabaseConnection.java**: Manages the connection to the MySQL database.
 * **DAO Classes**: Manages CRUD operations for tasks and to-do lists.
 * **Controller Classes**: Handles user interactions in the UI. Connects the frontend to the database.
+* **Test Classes:** Demonstrates unit, integration, and data collection tests.
+* **FXML Files:** User interface structure.
+* **CSS:** User interface styling.
 
 ## Troubleshooting
 * Verify that MySQL credentials in DatabaseConnection.java are correct and that the MySQL server is running.
