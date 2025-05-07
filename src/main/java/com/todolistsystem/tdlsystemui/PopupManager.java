@@ -26,6 +26,44 @@ public class PopupManager {
         }
     }
 
+    // New success pop-up
+    public static void showSuccessPopup(String message) {
+        try {
+            FXMLLoader loader = new FXMLLoader(PopupManager.class.getResource("SuccessPopup.fxml"));
+            Parent root = loader.load();
+
+            SuccessPopupController controller = loader.getController();
+            controller.setMessage(message);
+
+            Stage stage = new Stage();
+            stage.setTitle("Success");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // New error pop-up
+    public static void showErrorPopup(String message) {
+        try {
+            FXMLLoader loader = new FXMLLoader(PopupManager.class.getResource("ErrorPopup.fxml"));
+            Parent root = loader.load();
+
+            ErrorPopupController controller = loader.getController();
+            controller.setMessage(message);
+
+            Stage stage = new Stage();
+            stage.setTitle("Error");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     // Opens add task pop-up, passes the listID to assign the task to the correct list
     public static void showPopup(String fxmlFile, String title, int listID) {
         try {

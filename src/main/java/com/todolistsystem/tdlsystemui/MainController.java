@@ -12,13 +12,20 @@ import java.sql.SQLException;
 
 
 public class MainController {
-    @FXML private TableView<Task> tableViewTasks;
-    @FXML private TableColumn<Task, String> columnDescription;
-    @FXML private TableColumn<Task, String> columnDueDate;
-    @FXML private TableColumn<Task, Boolean> columnCompleted;
-    @FXML private Label labelSelectedList;
-    @FXML private ComboBox<String> comboBoxToDoLists;
-    @FXML private TableColumn<Task, Void> columnDelete;
+    @FXML
+    private TableView<Task> tableViewTasks;
+    @FXML
+    private TableColumn<Task, String> columnDescription;
+    @FXML
+    private TableColumn<Task, String> columnDueDate;
+    @FXML
+    private TableColumn<Task, Boolean> columnCompleted;
+    @FXML
+    private Label labelSelectedList;
+    @FXML
+    private ComboBox<String> comboBoxToDoLists;
+    @FXML
+    private TableColumn<Task, Void> columnDelete;
 
 
     private final ToDoListDAO listDAO = new ToDoListDAO();
@@ -44,6 +51,8 @@ public class MainController {
             private final Button deleteButton = new Button("Delete");
 
             {
+                deleteButton.getStyleClass().add("table-delete-button");
+
                 deleteButton.setOnAction(event -> {
                     Task task = (Task) getTableView().getItems().get(getIndex()); // Gets task
                     PopupManager.showConfirmationPopup("Are you sure you want to delete this task?", () -> {
@@ -145,7 +154,7 @@ public class MainController {
     @FXML
     private void showAddTaskPopup() {
         if (selectedListID == -1) {
-            AlertManager.showError("Please select a to-do list first.");
+            PopupManager.showErrorPopup("Please select a to-do list first.");
             return;
         }
         PopupManager.showPopup("AddTaskView.fxml", "Add Task", selectedListID);
@@ -157,7 +166,7 @@ public class MainController {
     private void showEditTaskPopup() {
         Task selectedTask = tableViewTasks.getSelectionModel().getSelectedItem();
         if (selectedTask == null) {
-            AlertManager.showError("Please select a task to edit.");
+            PopupManager.showErrorPopup("Please select a task to edit.");
             return;
         }
         PopupManager.showPopup("EditTaskView.fxml", "Edit Task", selectedTask);
@@ -169,7 +178,7 @@ public class MainController {
     private void showDeleteConfirmation() {
         Task selectedTask = tableViewTasks.getSelectionModel().getSelectedItem();
         if (selectedTask == null) {
-            AlertManager.showError("Please select a task to delete.");
+            PopupManager.showErrorPopup("Please select a task to delete.");
             return;
         }
         boolean confirmed = AlertManager.showConfirmation("Are you sure you want to delete this task?");
@@ -195,16 +204,16 @@ public class MainController {
     @FXML
     private void showDeleteListConfirmation() {
         if (selectedListID == -1) {
-            AlertManager.showError("Please select a to-do list to delete.");
+            PopupManager.showErrorPopup("Please select a to-do list to delete.");
             return;
         }
-        boolean confirmed = AlertManager.showConfirmation("Are you sure you want to delete this to-do list?");
-        if (confirmed) {
+
+        PopupManager.showConfirmationPopup("Are you sure you want to delete this to-do list?", () -> {
             listDAO.deleteList(selectedListID);
             loadToDoLists(); // Refresh the dropdown after deleting
             selectedListID = -1;
             labelSelectedList.setText("Tasks for: [Select a List]");
             tableViewTasks.getItems().clear(); // Clear the task table since the list is gone
-        }
+        });
     }
 }

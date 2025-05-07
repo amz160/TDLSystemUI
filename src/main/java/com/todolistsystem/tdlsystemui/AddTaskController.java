@@ -23,13 +23,13 @@ public class AddTaskController {
     private void addTask() {
         String description = textFieldTaskDescription.getText().trim();
         if (description.isEmpty()) {
-            AlertManager.showError("Task description cannot be empty.");
+            PopupManager.showErrorPopup("Task description cannot be empty.");
             return;
         }
         // Gets the due date if selected
         Date dueDate = datePickerDueDate.getValue() != null ? Date.valueOf(datePickerDueDate.getValue()) : null;
         taskDAO.addTask(listID, description, dueDate);
-        AlertManager.showSuccess("Task added successfully.");
+        PopupManager.showSuccessPopup("Task added successfully.");
         closePopup();
     }
 

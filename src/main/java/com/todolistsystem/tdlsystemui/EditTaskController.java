@@ -26,7 +26,7 @@ public class EditTaskController {
     private void updateTask() {
         String description = textFieldTaskDescription.getText().trim();
         if (description.isEmpty()) {
-            AlertManager.showError("Task description cannot be empty.");
+            PopupManager.showErrorPopup("Task description cannot be empty.");
             return;
         }
         // Get the due date if selected
@@ -34,7 +34,7 @@ public class EditTaskController {
         boolean isCompleted = checkBoxCompleted.isSelected();
 
         taskDAO.updateTask(task.getTaskID(), description, dueDate, isCompleted);
-        AlertManager.showSuccess("Task updated successfully.");
+        PopupManager.showSuccessPopup("Task updated successfully.");
         closePopup();
     }
 

@@ -4,19 +4,36 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
+<?import java.lang.String?>
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.todolistsystem.tdlsystemui.AddTaskController"
-      spacing="10" alignment="CENTER" style="-fx-padding: 20px;">
+      spacing="10" alignment="CENTER" stylesheets="@styles.css">
+    <styleClass>
+        <String fx:value="popup-box"/>
+    </styleClass>
 
-    <Label text="Add New Task"/>
+    <Label text="Add New Task">
+        <styleClass>
+            <String fx:value="popup-title"/>
+        </styleClass>
+    </Label>
+
     <TextField fx:id="textFieldTaskDescription" promptText="Enter task description"/>
     <DatePicker fx:id="datePickerDueDate"/>
-    <HBox spacing="10">
-        <Button text="Add Task" onAction="#addTask"/>
-        <Button text="Cancel" onAction="#closePopup"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Add Task" onAction="#addTask">
+            <styleClass>
+                <String fx:value="main-button"/>
+            </styleClass>
+        </Button>
+        <Button text="Cancel" onAction="#closePopup">
+            <styleClass>
+                <String fx:value="main-button"/>
+            </styleClass>
+        </Button>
     </HBox>
 </VBox>

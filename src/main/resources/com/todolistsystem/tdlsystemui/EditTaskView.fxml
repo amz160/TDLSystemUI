@@ -7,17 +7,35 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
-
+<?import java.lang.String?>
 
 <VBox xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.todolistsystem.tdlsystemui.EditTaskController"
-      spacing="10" alignment="CENTER" style="-fx-padding: 20px;">
-    <Label text="Edit Task"/>
+      spacing="10" alignment="CENTER" stylesheets="@styles.css">
+    <styleClass>
+        <String fx:value="popup-box"/>
+    </styleClass>
+
+    <Label text="Edit Task">
+        <styleClass>
+            <String fx:value="popup-title"/>
+        </styleClass>
+    </Label>
+
     <TextField fx:id="textFieldTaskDescription" promptText="Enter task description"/>
     <DatePicker fx:id="datePickerDueDate"/>
     <CheckBox fx:id="checkBoxCompleted" text="Completed"/>
-    <HBox spacing="10">
-        <Button text="Save Changes" onAction="#updateTask"/>
-        <Button text="Cancel" onAction="#closePopup"/>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Save Changes" onAction="#updateTask">
+            <styleClass>
+                <String fx:value="main-button"/>
+            </styleClass>
+        </Button>
+        <Button text="Cancel" onAction="#closePopup">
+            <styleClass>
+                <String fx:value="main-button"/>
+            </styleClass>
+        </Button>
     </HBox>
 </VBox>
